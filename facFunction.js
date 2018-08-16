@@ -3,7 +3,11 @@
 module.exports = function (storedUsers) {
     // letiables
     let EnterName = '';
-    let namesGreeted = {} || storedUsers;
+    let namesGreeted = {};
+    // object takes in the latest input and stored.
+    if (storedUsers) {
+        namesGreeted = storedUsers;
+    }
 
     function selectGreeting (typeOfLanguage, name) {
         if (typeOfLanguage !== undefined && name !== '') {
@@ -14,7 +18,7 @@ module.exports = function (storedUsers) {
                 // when the greet button is pressed check if this user was already greeted before
                 // by looking if the userName exists in namesGreeted if not increment this counter and update the screen
                 if (namesGreeted[EnterName] === undefined) {
-                // add an entry for the user that was greeted in the Object Map
+                    // add an entry for the user that was greeted in the Object Map
                     namesGreeted[EnterName] = 0;
                 }
 
