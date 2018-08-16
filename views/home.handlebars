@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Greetings-Webapp</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h1>Greeting</h1>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="twelve columns">
+        <form action="/greetings" method="post">
+          <input class="ten columns" type="text" name="enterName" id="" placeholder="Enter Name" >
+          </div>
+          </div>
+           <div class="row">
+      <div class="four columns">
+        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
+        <strong><span class="label-body ">English</span></strong>
+      </div>
+      <div class="four columns">
+        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="afrikaans">
+        <strong><span class="label-body">Afrikaans</span></strong>
+      </div>
+
+      <div class="four columns">
+        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="sotho">
+        <strong><span class="label-body">Sesotho</span></strong>
+      </div>
+
+    </div>
+
+          <button type="submit" class="button-primary" >Greet</button>
+           <div class="row">
+      <strong><div class="displayGreeting ten columns">{{displayGreeting}}</div></strong>
+    </div>
+    <div class="row">
+      <div>Counter:{{counter}}</div>
+    </div>
+        </form>
+      </div>
+     
+    
+
+  </div>
+
+
+</body>
+
+</html>
