@@ -25,3 +25,7 @@
   color: #000000;
   text-transform: capitalize;
 };
+
+.users {
+  text-transform: capitalize;
+}

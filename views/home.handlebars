@@ -12,15 +12,15 @@
       <div class="twelve columns">
         <h1>Greeting</h1>
       </div>
-      </div>
+    </div>
 
-      <div class="row">
+    <div class="row">
       <div class="twelve columns">
-        <form action="/greetings" method="post">
-          <input class="greetName ten columns" type="text" name="enterName" id="" placeholder="Enter Name" >
-          </div>
-          </div>
-           <div class="row">
+        <form action="/greeted" method="post">
+          <input class="greetName ten columns" type="text" name="enterName" id="" placeholder="Enter Name">
+      </div>
+    </div>
+    <div class="row">
       <div class="four columns">
         <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
         <strong><span class="label-body ">English</span></strong>
@@ -37,17 +37,24 @@
 
     </div>
 
-          <button type="submit" class="button-primary" >Greet</button>
-           <div class="row">
+    <button type="submit" class="button-primary">Greet</button>
+    <div class="row">
       <strong><div class="displayGreeting ten columns">{{displayGreeting}}</div></strong>
     </div>
     <div class="row">
       <div>Counter:{{counter}}</div>
     </div>
-        </form>
-      </div>
-     
-    
+    <div class="row">
+
+      <ul class="row">
+        {{#each greeted}}
+        <li>{{@key}} has been greeted</li>
+        {{/each}}
+      </ul>
+      </form>
+    </div>
+
+
 
   </div>
 
