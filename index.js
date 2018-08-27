@@ -2,6 +2,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const flash = require('express-flash');
 const facFunction = require('./facFunction');
 const pg = require('pg');
 const Pool = pg.Pool;
@@ -25,6 +27,14 @@ const useFactory = facFunction(pool);
 
 let app = express();
 
+app.use(session({
+    secret: 'enter all name and select language',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(flash());
+
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
@@ -39,14 +49,46 @@ app.use(bodyParser.urlencoded({
 // parse application/json
 app.use(bodyParser.json());
 
-app.post('/greeted', async function (req, res, next) {
+app.post('/greet', async function (req, res, next) {
     try {
         let enteredName = req.body.enterName;
         let selectedLanguage = req.body.languageTypeRadio;
+        if (enteredName === '' || enteredName === undefined) {
+            req.flash('error', 'Please enter name');
+        } else if ( selectedLanguage === undefined) {
+            req.flash('error', 'Please select language');
+        }
         let displayGreeting = await useFactory.selectGreeting(enteredName, selectedLanguage);
         let counter = await useFactory.countNames();
-        console.log(counter);
         res.render('greetings', {displayGreeting: displayGreeting, counter: counter});
+    } catch (err) {
+        next(err.stack);
+    }
+});
+
+app.get('/greeted', async function (req, res, next) {
+    try {
+        let usersGreeted = await useFactory.usersList();
+        res.render('greeted', {usersGreeted: usersGreeted});
+    } catch (err) {
+        next(err.stack);
+    }
+});
+
+app.get('/counter/:names', async function (req, res, next) {
+    try {
+        let name = req.params.names;
+        let user = await useFactory.singleUserCounter(name);
+        res.render('counter', {user});
+    } catch (err) {
+        next(err.stack);
+    }
+});
+
+app.post('/clearTableData', async function (req, res, next) {
+    try {
+        await useFactory.clearData();
+        res.redirect('/');
     } catch (err) {
         next(err.stack);
     }
@@ -60,20 +102,6 @@ app.get('/', async function (req, res, next) {
         next(err.stack);
     }
 });
-
-// app.get('/greetings/:enterName/:selectedLanguage', function (req, res) {
-//     let enteredName = req.params.enterName;
-//     let selectedLanguage = req.params.languageTypeRadio;
-//     let displayGreeting = useFactory.selectGreeting(selectedLanguage, enteredName);
-//     let counter = useFactory.countNames();
-//     console.log(enteredName);
-//     console.log(selectedLanguage);
-//     res.render('home', {
-//         displayGreeting: displayGreeting,
-//         counter: counter,
-//         enteredName
-//     });
-// });
 
 // port set-up
 let PORT = process.env.PORT || 3000;

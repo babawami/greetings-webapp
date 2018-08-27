@@ -16,7 +16,10 @@
 
     <div class="row">
       <div class="twelve columns">
-        <form action="/greeted" method="post">
+        <div class="error">
+          {{messages.error}}
+        </div>
+        <form action="/greet" method="post">
           <input class="greetName ten columns" type="text" name="enterName" id="" placeholder="Enter Name">
       </div>
     </div>
@@ -38,26 +41,19 @@
     </div>
 
     <button type="submit" class="button-primary">Greet</button>
+    </form>
     <div class="row">
       <strong><div class="displayGreeting ten columns">{{displayGreeting}}</div></strong>
     </div>
+
     <div class="row">
       <div>Counter:{{counter}}</div>
     </div>
-    <div class="row">
-
-      <ul class="row users">
-        {{#each greeted}}
-        <li><a href="http://">{{@key}}</a> has been greeted</li>
-        {{/each}}
-      </ul>
-      </form>
-    </div>
-
-
-
+      <a href="/greeted"><button>GreetedNames</button></a>
+      <form action="/clearTableData" method="POST"><button class="button-primary" type="submit" name="button">clear</button></form>
+  
   </div>
-
+  
 
 </body>
 

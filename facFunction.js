@@ -15,7 +15,6 @@ module.exports = function (pool) {
 
                 await pool.query('UPDATE users_greeted SET names_counter = names_counter+1 WHERE names = $1', [name]);
 
-
                 if (typeOfLanguage === 'english') {
                     return 'Hello, ' + name;
                 }
@@ -36,20 +35,25 @@ module.exports = function (pool) {
         return counter.rows[0].count;
     }
 
-    // function returnMap () {
-    //     return namesGreeted;
-    // }
+    async function usersList () {
+        let list = await pool.query('SELECT names FROM users_greeted ORDER BY names');
+        return list.rows;
+    }
 
-    // function resetStorage () {
-    //     namesGreeted = {};
-    //     return namesGreeted;
-    // }
+    async function singleUserCounter (name) {
+        let user = await pool.query('SELECT * FROM users_greeted where names=$1', [name]);
+        return user.rows[0];
+    }
+
+    async function clearData () {
+        await pool.query(' DELETE FROM users_greeted ');
+    }
 
     return {
         selectGreeting: selectGreeting,
-        countNames: countNames
-        // resetStorage: resetStorage,
-        // returnMap: returnMap,
-        
+        countNames: countNames,
+        usersList: usersList,
+        singleUserCounter: singleUserCounter,
+        clearData: clearData
     };
 };
