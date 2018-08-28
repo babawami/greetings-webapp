@@ -1,7 +1,10 @@
 <ul class="row">
+  
         {{#each usersGreeted}}
         <li><a href="counter/{{names}}">{{names}}</a> has been greeted</li>
         {{/each}}
       </ul>
-      {{user}}
+      <div class="error">
+          {{messages.error}}
+        </div>
     

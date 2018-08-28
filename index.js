@@ -55,7 +55,7 @@ app.post('/greet', async function (req, res, next) {
         let selectedLanguage = req.body.languageTypeRadio;
         if (enteredName === '' || enteredName === undefined) {
             req.flash('error', 'Please enter name');
-        } else if ( selectedLanguage === undefined) {
+        } else if (selectedLanguage === undefined) {
             req.flash('error', 'Please select language');
         }
         let displayGreeting = await useFactory.selectGreeting(enteredName, selectedLanguage);
@@ -69,6 +69,9 @@ app.post('/greet', async function (req, res, next) {
 app.get('/greeted', async function (req, res, next) {
     try {
         let usersGreeted = await useFactory.usersList();
+        if (usersGreeted.length === 0) {
+            req.flash('error', 'There is no users greeted!');
+        }
         res.render('greeted', {usersGreeted: usersGreeted});
     } catch (err) {
         next(err.stack);
