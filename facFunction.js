@@ -26,13 +26,15 @@ module.exports = function (pool) {
                 if (typeOfLanguage === 'sotho') {
                     return 'Dumela, ' + name;
                 }
+            } else {
+                return 'Please enter only letters';
             }
         }
     }
 
     async function countNames () {
         let counter = await pool.query('SELECT COUNT (names_counter) FROM users_greeted');
-        return counter.rows[0].count;
+        return Number(counter.rows[0].count);
     }
 
     async function usersList () {
@@ -41,7 +43,7 @@ module.exports = function (pool) {
     }
 
     async function singleUserCounter (name) {
-        let user = await pool.query('SELECT * FROM users_greeted where names=$1', [name]);
+        let user = await pool.query('SELECT names, names_counter FROM users_greeted where names=$1', [name]);
         return user.rows[0];
     }
 
