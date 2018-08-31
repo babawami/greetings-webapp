@@ -1,3 +1,32 @@
+body{
+background-color:  #f9f9f9;
+margin-top: 2em;
+}
+
+.error{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+h1{
+  text-align: center;
+  background: #ffffff;
+  padding: 2%;
+  box-shadow: 1px 2px 3px #7a7474;
+  border:5px solid #43397e
+}
+
+.counter{
+display: inline;
+}
+
+.lang{
+  margin-top: 2%;
+}
+
+
+
+
 .box {
   padding: 0.75em;
   border-radius : 0.5em;
@@ -11,21 +40,29 @@
   font-weight: bold;
 }
 
-.danger {
-  color: crimson;
-  font-weight: bold;
+h4{
+  text-align: center;
 }
 
-.total {
-  font-weight: bold;
-  font-size: 2em;
-}
 
-.ten.greetName {
+.greetName {
   color: #000000;
   text-transform: capitalize;
 };
 
 .users {
   text-transform: capitalize;
+}
+
+.displayGreeting{
+  text-align: center;
+  font-size: 2em;
+}
+
+.ten{
+  text-align: center;
+}
+
+.clear{
+  display: inline-block;
 }

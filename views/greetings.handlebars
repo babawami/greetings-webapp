@@ -8,52 +8,66 @@
 
 <body>
 
-    <div class="row">
-      <div class="twelve columns">
-        <h1>Greeting</h1>
-      </div>
+  <div class="row">
+    <div  style="text-align: center" class="twelve columns">
+      <img src="hello.png" alt="">
+      <h1>GREETINGS</h1>
+      
     </div>
+  </div>
 
-    <div class="row">
-      <div class="twelve columns">
-        <div class="error">
-          {{messages.error}}
+  <div class="row">
+    <div class="error">
+          {{messages.error}}  
         </div>
-        <form action="/greet" method="post">
-          <input class="greetName ten columns" type="text" name="enterName" id="" placeholder="Enter Name">
+    <form action="/greet" method="post">
+      <div class=" six columns">
+        <input class="greetName" type="text" name="enterName" id="" placeholder="Enter Name">
+        
       </div>
+      <div class="six columns">
+        <div class="counter">Counter: {{counter}}</div>
+      </div>
+  </div>
+  <br>
+  <h4>Select Choice Of Language To Greet</h4>
+  <div class=" lang row">
+    
+    <div class="four columns">
+      <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
+      <strong><span class="label-body ">English</span></strong>
     </div>
-    <div class="row">
-      <div class="four columns">
-        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
-        <strong><span class="label-body ">English</span></strong>
-      </div>
-      <div class="four columns">
-        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="afrikaans">
-        <strong><span class="label-body">Afrikaans</span></strong>
-      </div>
-
-      <div class="four columns">
-        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="sotho">
-        <strong><span class="label-body">Sesotho</span></strong>
-      </div>
-
-    </div>
-
-    <button type="submit" class="button-primary">Greet</button>
-    </form>
-    <div class="row">
-      <strong><div class="displayGreeting ten columns">{{displayGreeting}}</div></strong>
+    <div class="four columns">
+      <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="afrikaans">
+      <strong><span class="label-body">Afrikaans</span></strong>
     </div>
 
-    <div class="row">
-      <div>Counter:{{counter}}</div>
+    <div class="four columns">
+      <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="sotho">
+      <strong><span class="label-body">Sesotho</span></strong>
     </div>
-      <a href="/greeted"><button>GreetedNames</button></a>
-      <form action="/clearTableData" method="POST"><button class="button-primary" type="submit" name="button">clear</button></form>
+  </div>
+  <br>
+  <div class="ten columns">  <button  type="submit" class="button-primary">Greet</button>  </div>
+ 
+  </form>
+ 
   
+  <div class="row clear">
+    
+ <form action="/clearTableData" method="POST">
+  <button class="button-primary " type="submit" name="button">clear</button>
+ </form>
+  <a href="/greeted"><button>GreetedNames</button></a>
   
-  
+   
+  </div>
+   <div class="row">
+    <strong><div class="displayGreeting ten columns">{{displayGreeting}}</div></strong>
+  </div>
+
+
+
 
 </body>
 
