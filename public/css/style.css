@@ -6,6 +6,7 @@ margin-top: 2em;
 .error{
   text-align: center;
   font-size: 1.5em;
+  color:rgb(28, 166, 221);
 }
 
 h1{
@@ -18,10 +19,21 @@ h1{
 
 .counter{
 display: inline;
+color: #43397e;
+font-size: 2em;
+font-weight: bold;
+}
+
+.counted{
+  font-size: 1.5em;
 }
 
 .lang{
   margin-top: 2%;
+}
+
+.button.cl{
+  background-color: crimson;
 }
 
 
@@ -35,12 +47,35 @@ display: inline;
   margin-bottom: 1em;
 }
 
-.warning {
-  color: orange;
-  font-weight: bold;
-}
 
 h4{
+  text-align: center;
+  
+
+}
+
+.do{
+  background: green;
+  color: white;
+}
+
+.User{
+  text-align: center;
+  background: #ffffff;
+  padding: 2%;
+  box-shadow: 1px 2px 3px #7a7474;
+  border:5px solid #43397e
+}
+
+.oneUser{
+  text-align: center; 
+}
+
+.high{
+  color: #43397e;
+}
+
+h5{
   text-align: center;
 }
 
@@ -63,6 +98,23 @@ h4{
   text-align: center;
 }
 
-.clear{
-  display: inline-block;
+.final{
+  text-align: center;
+}
+
+.cl{
+  background: crimson;
+  color: white;
+}
+
+.allUsers{
+  text-align: center;
+}
+
+.allUsers a{
+  font-size: 1.5em;
+}
+
+th, td {
+  text-align: center
 }

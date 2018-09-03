@@ -1,22 +1,23 @@
-
 <div style="text-align:center" class="row">
   <div class="twelve columns">
-<img style="text-align:center" src="people.png" alt="">
+    <img style="text-align:center" src="people.png" alt="">
   </div>
 </div>
 
 <br>
 
+<div class="row">
+<table class=" tweleve columns" >
+  <th> List Of Users Greeted</th>
+  {{#each usersGreeted}}
+  <tr>
+    <td><a href="counter/{{names}}">{{names}}</a></td>
+  </tr>
+  {{/each}}
+</table>
+</div>
 
 
-<ul class="row">
-
-  
-        {{#each usersGreeted}}
-        <li><a href="counter/{{names}}">{{names}}</a> has been greeted</li>
-        {{/each}}
-      </ul>
-      <div class="error">
-          {{messages.error}}
-        </div>
-    
+<div class="error">
+  {{messages.error}}
+</div>
