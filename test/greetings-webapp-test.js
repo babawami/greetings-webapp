@@ -24,7 +24,7 @@ describe('Greetings function, be able to count number of people greeted', functi
         let greetingsFactory = facFunction(pool);
         assert.strictEqual(await greetingsFactory.selectGreeting('Andrew', 'afrikaans'), 'Goeie Dag, Andrew');
     });
-    it('It should return Molo when Sesotho radio button selected ', async function () {
+    it('It should return Dumela when Sesotho radio button selected ', async function () {
         let greetingsFactory = facFunction(pool);
         assert.strictEqual(await greetingsFactory.selectGreeting('Andrew', 'sotho'), 'Dumela, Andrew');
     });
