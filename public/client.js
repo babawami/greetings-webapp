@@ -1,8 +1,8 @@
-document.addEventListener('DomContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     let errorMessage = document.querySelector('.error');
     if (errorMessage.innerHTML !== '') {
-        errorMessage.innerHTML = '';
         setTimeout(function () {
+            errorMessage.innerHTML = '';
         }, 3000);
     }
 });
