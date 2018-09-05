@@ -408,7 +408,7 @@ there.
   width: 30%
 }
 }
-@media (max-width: 349px)and (min-width: 320px) {
+@media (max-width: 349px)and (min-width: 0px) {
   .four.columns{
     text-align: center
   }
