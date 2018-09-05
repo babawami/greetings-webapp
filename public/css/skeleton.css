@@ -403,7 +403,21 @@ there.
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (max-width: 550px)and (min-width: 350px) {
+.four.columns{
+  width: 30%
+}
+}
+@media (max-width: 349px)and (min-width: 320px) {
+  .four.columns{
+    text-align: center
+  }
+  }
+  @media (max-width: 549px) {
+    .six.columns{
+      text-align: center
+    }
+    }
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}
